@@ -1,123 +1,114 @@
 import React, { useContext } from 'react';
 import { Button, Dropdown,  Menu, Navbar } from 'react-daisyui';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext/AuthProvider';
 
 
 
 const Header = () => {
-  const { authUser} = useContext(AuthContext);
-    return (
-        <div className=" flex bg-amber-500 w-full component-preview p-4 items-center justify-center gap-2 font-sans">
-        <Navbar>
-          <Navbar.Start>
-            <Dropdown>
-              <Button color="ghost" tabIndex={0} className="lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </Button>
-              <Dropdown.Menu tabIndex={0} className="w-52 menu-compact mt-3">
-                <Dropdown.Item>Item 1</Dropdown.Item>
-                <li tabIndex={0}>
-                  <Link className="justify-between">
-                    Parent
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg>
-                  </Link>
-                  <ul className="p-2 bg-base-100">
-                    <li>
-                      <Link>Submenu 1</Link>
-                    </li>
-                    <li>
-                      <Link>Submenu 2</Link>
-                    </li>
-                  </ul>
-                </li>
-                <Dropdown.Item>Item 3</Dropdown.Item>
-                <Dropdown.Item>Login</Dropdown.Item>
-                <Dropdown.Item>Register</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Link className="btn btn-ghost normal-case text-xl" to="/">daisyUI</Link>
-          </Navbar.Start>
-          <Navbar.Center className="hidden lg:flex">
-            <Menu horizontal className="p-0">
-              <Menu.Item>
-                <Link>Item 1</Link>
-              </Menu.Item>
-              <Menu.Item tabIndex={0}>
-                <Link >
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                  </svg>
-                </Link>
-                <Menu className="p-2 bg-base-100">
-                  <Menu.Item>
-                    <Link>Submenu 1</Link>
-                  </Menu.Item>
-                  <Menu.Item>
-                    <Link>Submenu 2</Link>
-                  </Menu.Item>
-                </Menu>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="/Blog">Blog</Link>
-                { authUser?.data?._id ? "" :<Link to="/login">Login</Link> }
+  const { authUser, setUser} = useContext(AuthContext);
 
-                { authUser?.data?._id ? "" :<Link to="/register">Register</Link> }
+  // const navigate= useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/login";
+
+  const LogOutUser = () =>{
+  localStorage.removeItem("ID");
+  setUser(null);
+  return <Navigate to='/login' ></Navigate>
+ }
+
+    return (
+      <>
+     <header id="site-header" className="">
+  <div id="header-wrap">
+    <div className="container">
+      <nav className="navbar navbar-expand-lg px-8">
+            <Link className="navbar-brand logo" to="/">
+              <img id="logo-img" className="img-fluid" src="https://boostingbd.quickservicesit.com/assets/img/header/logo.png" alt="" />
+            </Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav mx-auto position-relative">
                 
-                
-              </Menu.Item>
-            </Menu>
-          </Navbar.Center>
-          <Navbar.End>
-          { authUser?.data?._id ? <Dropdown vertical="end">
-            <Button color="ghost" className="avatar" shape="circle">
-              <div className="w-10 rounded-full">
-                <img src="https://api.lorem.space/image/face?hash=33791" alt='' />
+                <li className="nav-item dropdown"> <Link className="nav-link active dropdown-toggle" to="#" data-bs-toggle="dropdown">Home</Link>
+             
+                </li>
+                <li className="nav-item dropdown"> <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Pages</Link>
+                </li>
+                <li className="nav-item dropdown"> <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Services</Link>
+                </li>
+                <li className="nav-item dropdown"> <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Project</Link>
+                </li>
+                <li className="nav-item dropdown"> <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">News</Link>
+
+                </li>
+                <li className="nav-item dropdown"> <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Contact</Link>             
+                </li>
+              </ul>
+            </div>
+            <div className="right-nav align-items-center d-flex justify-content-end">
+              
+             
+              { authUser?._id ? "" :<Link className="custom-btn custom-btn-white custom-btn-sm" to="/login">Login</Link> }
+              { authUser?._id ? "" :<Link className="custom-btn custom-btn-white custom-btn-sm" to="/register">Register</Link> }
+
+              <div className="search">
+                <div className="search-content">
+                  <div className="search-button"> <i className="fas fa-search"></i>
+                  </div>
+                  <form id="search-form" className="search-form">
+                    <input type="search" className="search-input" placeholder="Search Here..." />
+                  </form>
+                </div>
               </div>
-            </Button>
-            <Dropdown.Menu className="w-52 menu-compact">
-              <li>
-                <Link className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Logout</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown> :"" }
-         
-          </Navbar.End>
-        </Navbar>
+            </div>
+          </nav>
+    </div>
+  </div>
+</header>
+
+
+{/* 
+<nav id="ht-main-nav"> <Link to="#" className="ht-nav-toggle active"><span></span></Link>
+  <div className="container">
+    <div className="row">
+      <div className="col-md-12">
+        <img className="img-fluid side-logo mb-3" src="images/logo.png" alt="" />
+        <p className="mb-5">Loptus - Digital Marketing Agency Responsive HTML5 Template is Most PowerFull template 2018 For Everyone, Start working with an company that provide everything you need to generate awareness.</p>
+        <div className="form-info">
+          <h4 className="title">Contact info</h4>
+          <ul className="contact-info list-unstyled mt-4">
+            <li className="mb-4"><i className="flaticon-location"></i><span>Address:</span>
+              <p>423B, Road Wordwide Country, USA</p>
+            </li>
+            <li className="mb-4"><i className="flaticon-call"></i><span>Phone:</span><Link to="tel:+912345678900">+91-234-567-8900</Link>
+            </li>
+            <li><i className="flaticon-email"></i><span>Email</span><Link to="mailto:themeht23@gmail.com"> themeht23@gmail.com</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="social-icons social-colored mt-5">
+          <ul className="list-inline">
+            <li className="mb-2 social-facebook"><Link to="#"><i className="fab fa-facebook-f"></i></Link>
+            </li>
+            <li className="mb-2 social-twitter"><Link to="#"><i className="fab fa-twitter"></i></Link>
+            </li>
+            <li className="mb-2 social-linkedin"><Link to="#"><i className="fab fa-linkedin-in"></i></Link>
+            </li>
+            <li className="mb-2 social-gplus"><Link to="#"><i className="fab fa-google-plus-g"></i></Link>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </div>
+</nav> */}
+
+      </>
     );
 };
 

@@ -1,0 +1,96 @@
+[
+    {
+        "title": "Dashborad",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "path": "/admin/dashboard"
+    },
+    {
+        "title": "Amounts",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "Amounts",
+                "icon": "bi-house-fill",
+                "path": "/admin/amounts"
+            }
+        ]
+    },
+    {
+        "title": "Ads Manager",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "Pendding Ads Manager",
+                "icon": "bi-house-fill",
+                "path": "/admin/all/ads/manager"
+            },
+            {
+                "title": "Processing Ads Manager",
+                "icon": "bi-info-circle-fill",
+                "path": "/admin/ads/manager/proccesing"
+            },
+            {
+                "title": "Complete Ads Manager",
+                "icon": "bi-question-circle-fill",
+                "path": "/admin/ads/manager/complete"
+            }
+        ]
+    },
+    {
+        "title": "Ads Request",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "All Ads Request",
+                "icon": "bi-house-fill",
+                "path": "/admin/ads/request"
+            },
+            {
+                "title": "Payment Request",
+                "icon": "bi-info-circle-fill",
+                "path": "/admin/ads/request/payment"
+            },
+            {
+                "title": "Processing Ads",
+                "icon": "bi-question-circle-fill",
+                "path": "/admin/ads/request/proccesing"
+            },
+            {
+                "title": "Complete Ads",
+                "icon": "bi-question-circle-fill",
+                "path": "/admin/ads/request/done"
+            }
+        ]
+    },
+    {
+        "title": "Role",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "All Manger",
+                "icon": "bi-house-fill",
+                "path": "/admin/manager/view"
+            },
+            {
+                "title": "Disable Manager",
+                "icon": "bi-info-circle-fill",
+                "path": "/about"
+            },
+            {
+                "title": "All Staff",
+                "icon": "bi-question-circle-fill",
+                "path": "/admin/staff/view"
+            },
+            {
+                "title": "All Staff",
+                "icon": "bi-question-circle-fill",
+                "path": "/admin/staff/view"
+            }
+        ]
+    },
+      {
+        "title": "Requests Accounts",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "path": "/admin/accounts/request"
+    }
+]

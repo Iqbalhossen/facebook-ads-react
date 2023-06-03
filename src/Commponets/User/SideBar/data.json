@@ -1,0 +1,59 @@
+[
+    
+    {
+        "title": "Pages",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "path": "/user/pages/view"
+    },
+    
+
+    {
+        "title": "Ads Managers",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "All Ads Managers",
+                "icon": "bi-house-fill",
+                "path": "/user/ads/manager"
+            }
+        ]
+    },
+    {
+        "title": "My Requests",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "path": "/user/requests"
+    },
+    {
+        "title": "Ads Request",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "childrens": [
+            {
+                "title": "All Ads Request",
+                "icon": "bi-house-fill",
+                "path": "/user/ads/request/view"
+            },
+            {
+                "title": "Payment Now",
+                "icon": "bi-info-circle-fill",
+                "path": "/user/accept/request"
+            },
+            {
+                "title": "Reject Requests",
+                "icon": "bi-info-circle-fill",
+                "path": "/user/reject/request"
+            },
+            {
+                "title": "Ads Manager",
+                "icon": "bi-info-circle-fill",
+                "path": "/user/ads/request/manager"
+            }
+            
+        ]
+    },
+    {
+        "title": "My Account",
+        "icon": "<AiOutlineDown></AiOutlineDown>",
+        "path": "/user/accounts"
+    }
+
+]
